@@ -128,3 +128,7 @@ deploy-service:
 copy-delve-to-pod:
 	kubectl cp $$(which dlv) $(POD):/dlv
 
+.PHONY: exec-into-pod
+exec-into-pod:
+	kubectl exec -i -t $(POD) /bin/bash
+
