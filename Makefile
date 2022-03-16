@@ -66,3 +66,22 @@ exec-dlv-basic-container-with-src:
 build-image-with-delve:
 	docker build --pull --rm -f build/Dockerfile-with-delve -t $(DELVE_IMG):latest .
 
+# Run docker image containing delve binary.
+.PHONY: run-dlv-container
+run-dlv-container:
+	docker run --rm -it --detach -p 8080:8080 -p 9090:9090 $(DELVE_IMG)
+
+# Connect to headless dlv server within container.
+.PHONY: connect-to-remote-dlv
+connect-to-remote-dlv:
+	dlv connect localhost:9090
+
+# Stop container running headless dlv server.
+.PHONY: stop-dlv-container
+stop-dlv-container:
+	docker stop $$(docker ps -aqf "ancestor=$(DELVE_IMG)")
+
+# Connect to headless dlv server within container.
+.PHONY: connect-to-remote-dlv-with-src
+connect-to-remote-dlv-with-src:
+	dlv --init=hack/delve-remote-initfile connect localhost:9090

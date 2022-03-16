@@ -1,0 +1,2 @@
+# Add substitute path rule for source code.
+config substitute-path /project /home/deparker/Code/talks/buggycluster-workshop
