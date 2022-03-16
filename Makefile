@@ -39,3 +39,8 @@ build-image:
 run-basic-image:
 	docker run -it --detach -p 8080:8080 --rm $(BASIC_IMG)
 
+# Copy dlv binary into basic container.
+.PHONY: copy-dlv-to-container
+copy-dlv-to-container:
+	docker cp $$(which dlv) $$(docker ps -aqf "ancestor=$(BASIC_IMG)"):/dlv
+
