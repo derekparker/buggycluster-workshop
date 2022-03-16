@@ -91,3 +91,8 @@ connect-to-remote-dlv:
 connect-to-remote-dlv-with-src:
 	dlv --init=hack/delve-remote-initfile connect localhost:9090
 
+# Stop container running headless dlv server.
+.PHONY: stop-dlv-container
+stop-dlv-container:
+	docker stop $$(docker ps -aqf "ancestor=$(DELVE_IMG)")
+
