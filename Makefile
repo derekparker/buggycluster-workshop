@@ -126,4 +126,7 @@ redeploy-service:
 deploy-dlv-service:
 	kubectl apply -f ./deploy/service-with-dlv.yaml
 
+.PHONY: port-forward
+port-forward:
+	kubectl port-forward $(POD) 9090:9090
 
