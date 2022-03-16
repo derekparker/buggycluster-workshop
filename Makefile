@@ -49,3 +49,8 @@ copy-dlv-to-container:
 exec-dlv-basic-container:
 	docker exec -it $$(docker ps -aqf "ancestor=$(BASIC_IMG)") /dlv attach 1
 
+# Stop running basic container.
+.PHONY: stop-basic-container
+stop-basic-container:
+	docker stop $$(docker ps -aqf "ancestor=$(BASIC_IMG)")
+
