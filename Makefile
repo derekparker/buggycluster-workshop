@@ -122,4 +122,8 @@ exec-into-pod:
 redeploy-service:
 	kubectl apply -f ./deploy/service-basic-ptrace.yaml
 
+.PHONY: deploy-dlv-service
+deploy-dlv-service:
+	kubectl apply -f ./deploy/service-with-dlv.yaml
+
 
