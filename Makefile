@@ -101,3 +101,7 @@ devinstall-osx:
 .PHONY: devinstall-linux
 devinstall-linux:
 	snap install kubectl --classic
+
+.PHONY: create-cluster
+create-cluster:
+	kind create cluster --name=$(KIND_CLUSTER)
