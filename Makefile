@@ -81,3 +81,8 @@ build-image-with-delve:
 run-dlv-container:
 	docker run --cap-add=SYS_PTRACE --rm -it --detach -p 8080:8080 -p 9090:9090 $(DELVE_IMG)
 
+# Connect to headless dlv server within container.
+.PHONY: connect-to-remote-dlv
+connect-to-remote-dlv:
+	dlv connect localhost:9090
+
