@@ -105,3 +105,7 @@ devinstall-linux:
 .PHONY: create-cluster
 create-cluster:
 	kind create cluster --name=$(KIND_CLUSTER)
+
+.PHONY: deploy-service
+deploy-service:
+	kubectl create -f ./deploy/service-basic.yaml
