@@ -86,3 +86,8 @@ run-dlv-container:
 connect-to-remote-dlv:
 	dlv connect localhost:9090
 
+# Connect to headless dlv server within container.
+.PHONY: connect-to-remote-dlv-with-src
+connect-to-remote-dlv-with-src:
+	dlv --init=hack/delve-remote-initfile connect localhost:9090
+
