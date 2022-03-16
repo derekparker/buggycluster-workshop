@@ -39,6 +39,11 @@ build-image:
 run-basic-image:
 	docker run -it --detach -p 8080:8080 --rm $(BASIC_IMG)
 
+# Run basic image with ptrace SYS_CAP.
+.PHONY: run-basic-image-with-ptrace
+run-basic-image-with-ptrace:
+	docker run -it --detach --rm -p 8080:8080 --cap-add=SYS_PTRACE $(BASIC_IMG)
+
 # Copy dlv binary into basic container.
 .PHONY: copy-dlv-to-container
 copy-dlv-to-container:
