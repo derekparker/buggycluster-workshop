@@ -61,3 +61,8 @@ exec-dlv-basic-container-with-src:
 	docker cp hack/delve-container-initfile $$(docker ps -aqf "ancestor=$(BASIC_IMG)"):/delve-container-initfile
 	docker exec -it $$(docker ps -aqf "ancestor=$(BASIC_IMG)") /dlv --init=/delve-container-initfile attach 1
 
+# Build docker image containing Delve binary already.
+.PHONY: build-image-with-delve
+build-image-with-delve:
+	docker build --pull --rm -f build/Dockerfile-with-delve -t $(DELVE_IMG):latest .
+
