@@ -96,3 +96,23 @@ connect-to-remote-dlv-with-src:
 stop-dlv-container:
 	docker stop $$(docker ps -aqf "ancestor=$(DELVE_IMG)")
 
+#########################
+## Kubernetes commands ##
+#########################
+
+POD := $$(kubectl get pods -o name | head -n 1 | sed 's/pod\///g')
+DLV_POD := $$(kubectl get pods -o name | grep dlv | head -n 1 | sed 's/pod\///g')
+KIND_CLUSTER := buggycluster
+
+.PHONY: install-kind
+install-kind:
+	go install sigs.k8s.io/kind@v0.11.1
+
+.PHONY: devinstall-osx
+devinstall-osx:
+	brew install kubectl
+
+.PHONY: devinstall-linux
+devinstall-linux:
+	snap install kubectl --classic
+
