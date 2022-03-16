@@ -43,3 +43,8 @@ exec-dlv-basic-container:
 stop-basic-container:
 	docker stop $$(docker ps -aqf "ancestor=$(BASIC_IMG)")
 
+# Run basic image with ptrace SYS_CAP.
+.PHONY: run-basic-image-with-ptrace
+run-basic-image-with-ptrace:
+	docker run -it --detach --rm --cap-add=SYS_PTRACE $(BASIC_IMG)
+
