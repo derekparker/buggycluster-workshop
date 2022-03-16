@@ -139,3 +139,7 @@ kube-debug:
 cleanup-debug-pod:
 	kubectl delete pod debug-pod
 
+.PHONY: delete-cluster
+delete-cluster:
+	kind delete cluster --name=$(KIND_CLUSTER)
+
