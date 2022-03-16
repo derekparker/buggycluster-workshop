@@ -135,3 +135,8 @@ port-forward:
 kube-debug:
 	kubectl debug -it $(POD) --image=derekparker/dlv-service --share-processes --copy-to=debug-pod -- /bin/sh
 
+
+.PHONY: cleanup-debug-pod
+cleanup-debug-pod:
+	kubectl delete pod debug-pod
+
