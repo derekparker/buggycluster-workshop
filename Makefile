@@ -124,3 +124,7 @@ create-cluster:
 deploy-service:
 	kubectl create -f ./deploy/service-basic.yaml
 
+.PHONY: copy-delve-to-pod
+copy-delve-to-pod:
+	kubectl cp $$(which dlv) $(POD):/dlv
+
