@@ -13,3 +13,11 @@ install-delve:
 .PHONY: debug
 debug:
 	dlv debug
+
+BASIC_IMG := buggy-basic
+DELVE_IMG := buggy-with-delve
+
+# Build basic container image.
+.PHONY: build-image
+build-image:
+	docker build --pull --rm -f build/Dockerfile-basic -t $(BASIC_IMG):latest .
