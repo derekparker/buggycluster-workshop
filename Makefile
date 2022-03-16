@@ -132,3 +132,6 @@ copy-delve-to-pod:
 exec-into-pod:
 	kubectl exec -i -t $(POD) /bin/bash
 
+.PHONY: redeploy-service
+redeploy-service:
+	kubectl apply -f ./deploy/service-basic-ptrace.yaml
