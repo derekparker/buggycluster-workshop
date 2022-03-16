@@ -59,3 +59,7 @@ exec-dlv-basic-container:
 stop-basic-container:
 	docker stop $$(docker ps -aqf "ancestor=$(BASIC_IMG)")
 
+.PHONY: change-ptrace-yama
+change-ptrace-yama:
+	echo "0" | sudo tee /proc/sys/kernel/yama/ptrace_scope
+
