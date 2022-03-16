@@ -88,6 +88,7 @@ connect-to-remote-dlv-with-src:
 
 
 POD := $$(kubectl get pods -o name | head -n 1 | sed 's/pod\///g')
+DLV_POD := $$(kubectl get pods -o name | grep dlv | head -n 1 | sed 's/pod\///g')
 KIND_CLUSTER := buggycluster
 
 .PHONY: install-kind
@@ -128,5 +129,5 @@ deploy-dlv-service:
 
 .PHONY: port-forward
 port-forward:
-	kubectl port-forward $(POD) 9090:9090
+	kubectl port-forward $(DLV_POD) 9090:9090
 
