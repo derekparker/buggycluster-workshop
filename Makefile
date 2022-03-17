@@ -153,3 +153,15 @@ deploy-dlv-service:
 .PHONY: port-forward
 port-forward:
 	kubectl port-forward $(DLV_POD) 9090:9090
+
+.PHONY: kube-debug
+kube-debug:
+	kubectl debug -it $(POD) --image=derekparker/dlv-service --share-processes --copy-to=debug-pod -- /bin/sh
+
+.PHONY: cleanup-debug-pod
+cleanup-debug-pod:
+	kubectl delete pod debug-pod
+
+.PHONY: delete-cluster
+delete-cluster:
+	kind delete cluster --name=$(KIND_CLUSTER)
