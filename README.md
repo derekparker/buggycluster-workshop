@@ -13,7 +13,7 @@ main repository for students / attendees to pull the code as the workshop progre
 ## Cloning repo
 
 ```
-git clone -b jaxgo https://github.com/derekparker/buggycluster-workshop.git
+git clone -b boston-go https://github.com/derekparker/buggycluster-workshop.git
 ```
 
 ## Talk description
