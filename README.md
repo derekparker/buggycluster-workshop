@@ -10,6 +10,12 @@ main repository for students / attendees to pull the code as the workshop progre
 * Kubectl
 * Kind
 
+## Cloning repo
+
+```
+git clone -b jaxgo https://github.com/derekparker/buggycluster-workshop.git
+```
+
 ## Talk description
 
 You are tasked with creating a cloud native application which can run in a container and also be deployed
