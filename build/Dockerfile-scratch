@@ -4,10 +4,11 @@ WORKDIR /project
 
 COPY . .
 
+ENV CGO_ENABLED=0
 RUN go build -o /project/bin/app
 
 FROM scratch
 
-COPY --from=builder /project/bin/app .
+COPY --from=builder /project/bin/app /app
 
-CMD [ "./app" ]
+CMD [ "/app" ]
