@@ -141,3 +141,15 @@ copy-delve-to-pod:
 .PHONY: exec-into-pod
 exec-into-pod:
 	kubectl exec -i -t $(POD) /bin/bash
+
+.PHONY: redeploy-service
+redeploy-service:
+	kubectl apply -f ./deploy/service-basic-ptrace.yaml
+
+.PHONY: deploy-dlv-service
+deploy-dlv-service:
+	kubectl apply -f ./deploy/service-with-dlv.yaml
+
+.PHONY: port-forward
+port-forward:
+	kubectl port-forward $(DLV_POD) 9090:9090
