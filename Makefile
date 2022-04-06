@@ -6,3 +6,7 @@ vagrant-up:
 vagrant-destroy:
 	vagrant destroy
 
+.PHONY: vagrant-ssh
+vagrant-ssh:
+	vagrant ssh
+
