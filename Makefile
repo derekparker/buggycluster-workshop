@@ -22,3 +22,6 @@ run:
 curl-app:
 	curl localhost:8080/foo/bar
 
+.PHONY: debug
+debug:
+	dlv debug
