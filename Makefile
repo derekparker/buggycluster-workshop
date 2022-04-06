@@ -37,3 +37,17 @@ clean:
 .PHONY: dlv-exec
 dlv-exec:
 	dlv exec bin/app
+
+##############################
+## Container Image commands ##
+##############################
+
+BASIC_IMG := buggy-basic
+SCRATCH_IMG := buggy-scratch
+DELVE_IMG := buggy-with-delve
+
+# Build basic container image.
+.PHONY: build-image
+build-image:
+	docker build --pull --rm -f build/Dockerfile-basic -t $(BASIC_IMG):latest .
+
