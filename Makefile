@@ -25,3 +25,11 @@ curl-app:
 .PHONY: debug
 debug:
 	dlv debug
+
+.PHONY: build
+build:
+	go build -gcflags="all=-N -l" -o bin/app
+
+.PHONY: clean
+clean:
+	rm -rf bin
