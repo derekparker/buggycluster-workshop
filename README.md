@@ -16,16 +16,6 @@ git clone -b chicago-go https://github.com/derekparker/buggycluster-workshop.git
 * Kubectl
 * Kind
 
-## Talk description
-
-You are tasked with creating a cloud native application which can run in a container and also be deployed
-within a kubernetes cluster.
-
-Easy enough, right? Wrong!
-
-Unfortunately bugs abound and have infected the cluster. It is up to you, our intrepid developer to
-clear out all the bugs and get the application deployed!
-
 ## Workshop Outline
 
 This workshop follows a progressive approach. We first learn how to debug on the host, and then continue
