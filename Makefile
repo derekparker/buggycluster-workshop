@@ -33,3 +33,7 @@ build:
 .PHONY: clean
 clean:
 	rm -rf bin
+
+.PHONY: dlv-exec
+dlv-exec:
+	dlv exec bin/app
