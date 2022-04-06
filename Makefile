@@ -98,3 +98,15 @@ run-scratch-image:
 .PHONY: debug-scratch-image
 debug-scratch-image:
 	docker run -it --rm --cap-add=SYS_PTRACE --pid="container:buggy-scratch" buggy-debug /bin/bash
+
+#########################
+## Kubernetes commands ##
+#########################
+
+POD := $$(kubectl get pods -o name | head -n 1 | sed 's/pod\///g')
+DLV_POD := $$(kubectl get pods -o name | grep dlv | head -n 1 | sed 's/pod\///g')
+KIND_CLUSTER := buggycluster
+
+.PHONY: create-cluster
+create-cluster:
+	kind create cluster --name=$(KIND_CLUSTER)
