@@ -64,3 +64,7 @@ exec-dlv-basic-container:
 .PHONY: change-ptrace-yama
 change-ptrace-yama:
 	echo "0" | sudo tee /proc/sys/kernel/yama/ptrace_scope
+
+.PHONY: reset-ptrace-yama
+reset-ptrace-yama:
+	echo "1" | sudo tee /proc/sys/kernel/yama/ptrace_scope
