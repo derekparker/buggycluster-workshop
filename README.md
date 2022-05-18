@@ -3,6 +3,12 @@
 This repo contains the intitial code for the Bugs on a Cluster mini-workshop and also acts as the
 main repository for students / attendees to pull the code as the workshop progresses so they can follow along.
 
+To clone this repo:
+
+```
+git clone -b golang-reston https://github.com/derekparker/buggycluster-workshop.git
+```
+
 # Prerequisites
 
 * Go toolchain
