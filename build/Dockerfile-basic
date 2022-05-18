@@ -6,7 +6,7 @@ WORKDIR /project
 
 COPY . .
 
-RUN go build -o /project/bin/app
+RUN go build -gcflags="all=-N -l" -o /project/bin/app
 
 FROM ubuntu:22.04
 
