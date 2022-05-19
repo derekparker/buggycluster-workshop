@@ -147,3 +147,7 @@ port-forward:
 .PHONY: connect-to-remote-dlv
 connect-to-remote-dlv:
 	dlv connect localhost:9090
+
+.PHONY: kube-debug
+kube-debug:
+	kubectl debug -it $(POD) --image=derekparker/dlv-service --share-processes --copy-to=debug-pod -- /bin/sh
